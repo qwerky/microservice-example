@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cartms-deployment
+  labels:
+    app: cartms
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cartms
+  template:
+    metadata:
+      labels:
+        app: cartms
+    spec:
+      containers:
+      - name: cartms
+        image: ntay/springbootms:latest
+        ports:
+          - containerPort: 8080
+        env:
+          - name: MONGO_CONNECTION
+            valueFrom:
+              secretKeyRef:
+                name: mongo-conf
+                key: MONGO_CONNECTION
+          - name: MONGO_DB
+            valueFrom:
+              secretKeyRef:
+                name: mongo-conf
+                key: MONGO_DB
