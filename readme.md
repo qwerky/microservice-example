@@ -181,3 +181,8 @@ $ curl http://localhost:8081/cart/item/65ce92b56d240e2c1ae102cf
                                  Dload  Upload   Total   Spent    Left  Speed
 100    92    0    92    0     0   2044      0 --:--:-- --:--:-- --:--:--  2044{"id":"65ce92b56d240e2c1ae102cf","name":"Biscuits","qty":5,"unit_cost":129,"total_cost":645}
 ```
+
+# Conclusion
+We've been able to get a Spring Boot microservice running on Kubernetes locally, and test it out.
+There's more to explore in the next stage, which involves [creating a Kubernetes cluster on AWS using Elastic Kubernetes Service (EKS),
+and using Terraform to define our deployment infrastructure as code](infrastructure-as-code.md).
